@@ -217,7 +217,7 @@ public class CartFragment extends ListFragment {
             Log.e(TAG, "displayToast", e);
         }
 	}
-
+	@InfoPoint
 	public void checkoutCart(){
         Log.d(TAG, "checkoutCart(): currentCartItems size = " + currentCartItems.size());
 		if (currentCartItems!=null && currentCartItems.size()>0){

@@ -21,6 +21,8 @@ import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
 import com.nostra13.universalimageloader.core.display.SimpleBitmapDisplayer;
 import com.nostra13.universalimageloader.core.download.BaseImageDownloader;
 
+import com.appdynamics.eumagent.runtime.Instrumentation;
+
 
 /**
  * Currently used to initialize the Universal Image Loader which allows some flexibility with the number of threads flag
@@ -64,6 +66,11 @@ public class CustomApplication extends Application {
                         .defaultDisplayImageOptions(options) // default
                         .writeDebugLogs().build();
         ImageLoader.getInstance().init(config);
+        // Start the AppDynamics Instrumentation
+Instrumentation.start(AgentConfiguration.builder()
+        .withContext(getApplicationContext())
+        .withAppKey("AD-AAB-AAM-JVV")
+        .build());
     }
 
     public void setGlobalData() {

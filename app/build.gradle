@@ -1,12 +1,25 @@
 apply plugin: 'com.android.application'
 apply plugin: 'adeum'
+buildscript {
+    repositories {
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'com.appdynamics:appdynamics-gradle-plugin:4.5.1.1180'
+    }
+}
+
+repositories {
+    jcenter()
+}
 
 android {
     compileSdkVersion 23
     buildToolsVersion '25.0.3'
     useLibrary 'org.apache.http.legacy'
     defaultConfig {
-        applicationId "com.appdynamics.demo.android.ECommerce"
+        applicationId 'com.appdynamics.demo.android.ECommerce.ktullyandroid'
         minSdkVersion 4
         targetSdkVersion 19
     }

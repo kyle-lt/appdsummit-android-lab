@@ -140,6 +140,7 @@ public class LoginActivity extends Activity implements AsyncTaskListener {
 			showProgress(true);
 			mAuthTask = new UserLoginTask(this);
 			mAuthTask.execute(mUser,mPassword);
+			com.appdynamics.eumagent.runtime.Instrumentation.setUserData("username", mUser, true);
 		}
 	}
 
