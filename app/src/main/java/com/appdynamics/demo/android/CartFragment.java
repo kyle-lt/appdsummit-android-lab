@@ -219,7 +219,11 @@ public class CartFragment extends ListFragment {
 	}
 	@InfoPoint
 	public void checkoutCart(){
-        Log.d(TAG, "checkoutCart(): currentCartItems size = " + currentCartItems.size());
+        // ----- ktully ----- Stop Custom Timer for Shopping Time
+		com.appdynamics.eumagent.runtime.Instrumentation.stopTimer("ShoppingTime");
+		Log.d(TAG, "checkoutCart(): currentCartItems size = " + currentCartItems.size());
+		// ----- ktully ----- Custom Metric for Cart Size at Checkout
+		com.appdynamics.eumagent.runtime.Instrumentation.reportMetric("CartSize", currentCartItems.size());
 		if (currentCartItems!=null && currentCartItems.size()>0){
 			CheckoutTask checkoutReq = new CheckoutTask();
 			checkoutReq.execute(getEndpoint() + "cart/co");
